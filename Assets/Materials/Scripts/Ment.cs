@@ -1,23 +1,37 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Ment: MonoBehaviour
+public class Ment: Entity
 {
     [SerializeField] private float speed = 3f;
-    [SerializeField] private int lives = 10;
     [SerializeField] private float jumpForce = 12f;
+    [SerializeField] private int health;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
-    private bool isGrounded = false;
+    private bool isGrounded = false, isAttacking = false, isRecharged = true;
     private Camera mainCamera;
     private Vector2 screenBounds;
     private float objectWidth;
     private Animator anim;
+    public Transform attackPos;
+    public float attackRange;
+    public LayerMask enemy;
+    [SerializeField] private Image[] hearts;
+    [SerializeField] private Sprite alive, dead;
+
+    public static Ment Instance {  get;  set; }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         anim= GetComponent<Animator>();
+        Instance = this;
+        isRecharged = true;
+        lives = 6;
+        health = lives;
+
     }
     private void Start()
     {
@@ -30,6 +44,16 @@ public class Ment: MonoBehaviour
         if (isGrounded) State = States.idle;
         if (Input.GetButton("Horizontal")) Run();
         if (isGrounded && Input.GetButtonDown("Jump")) Jump();
+        if (Input.GetButtonDown("Fire1")) Attack();
+        if (health > lives) health = lives;
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if (i<health) hearts[i].sprite = alive;
+            else hearts[i].sprite = dead;
+            if (i<lives) hearts[i].enabled = true;
+            else hearts[i].enabled = false;
+
+        } 
     }
     private void FixedUpdate()
     {
@@ -62,15 +86,49 @@ public class Ment: MonoBehaviour
 
         if (!isGrounded) State = States.jump;
     }
+    public override void GetDamage()
+    {
+        health--;
+        if (health == 0)
+        {
+            foreach (var h in hearts) h.sprite = dead;
+            Die();
+        }
+        Debug.Log($"{lives} lives left(Ment)");
+    }
+    private void Attack()
+    {
+        if (isGrounded && isRecharged) 
+        {
+            State = States.attack;
+            isAttacking = true;
+            isRecharged = false;
+            StartCoroutine(AttackAnimation());
+            StartCoroutine(AttackCoolDown());
+
+            Debug.Log("Attack");
+        }
+    }
     public enum States
     {
         idle,
         run,
-        jump
+        jump,
+        attack
     }
     private States State
     {
         get { return (States)anim.GetInteger("state"); }
         set { anim.SetInteger("state", (int)value); }
+    }
+    private IEnumerator AttackAnimation()
+    {
+        yield return new WaitForSeconds(0.4f);
+        isAttacking = false;
+    }
+    private IEnumerator AttackCoolDown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        isRecharged = true;
     }
 }
