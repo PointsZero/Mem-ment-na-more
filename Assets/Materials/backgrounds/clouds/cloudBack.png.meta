@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: d07cb8b6057b30c4eb8a8a3174cc8be8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3945082987115592814
+    second: cloudBack_0
+  - first:
+      213: -462595427014696295
+    second: cloudBack_1
+  - first:
+      213: 408207634039219226
+    second: cloudBack_2
+  - first:
+      213: -831012184811106447
+    second: cloudBack_3
+  - first:
+      213: -1625199764614963308
+    second: cloudBack_4
+  - first:
+      213: -8999507540764923154
+    second: cloudBack_5
+  - first:
+      213: 3816140108416669542
+    second: cloudBack_6
+  - first:
+      213: -60259356501896476
+    second: cloudBack_7
+  - first:
+      213: -6956125459630969301
+    second: cloudBack_8
+  - first:
+      213: -1061915203675278610
+    second: cloudBack_9
+  - first:
+      213: 4658776152066475447
+    second: cloudBack_10
+  - first:
+      213: -1068406581034712873
+    second: cloudBack_11
+  - first:
+      213: -2931482894960637694
+    second: cloudBack_12
+  - first:
+      213: 7127504691999761976
+    second: cloudBack_13
+  - first:
+      213: -7460071698968758368
+    second: cloudBack_14
+  - first:
+      213: 1642421444018931780
+    second: cloudBack_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 0
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: cloudBack_0
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 918
+        width: 152
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6c36782310cfb630800000000000000
+      internalID: 3945082987115592814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudBack_1
+      rect:
+        serializedVersion: 2
+        x: 2035
+        y: 958
+        width: 112
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 992a11af8e78499f0800000000000000
+      internalID: -462595427014696295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudBack_2
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 828
+        width: 152
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a14a28d2eae3aa500800000000000000
+      internalID: 408207634039219226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudBack_3
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 868
+        width: 112
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17f005022d6a774f0800000000000000
+      internalID: -831012184811106447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudBack_4
+      rect:
+        serializedVersion: 2
+        x: 2425
+        y: 868
+        width: 112
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49f931dbc612279e0800000000000000
+      internalID: -1625199764614963308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudBack_5
+      rect:
+        serializedVersion: 2
+        x: 2655
+        y: 838
+        width: 152
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeae147b2935b1380800000000000000
+      internalID: -8999507540764923154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudBack_6
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 778
+        width: 112
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 667db47b537a5f430800000000000000
+      internalID: 3816140108416669542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudBack_7
+      rect:
+        serializedVersion: 2
+        x: 1315
+        y: 748
+        width: 152
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e29f4d3f6ae92ff0800000000000000
+      internalID: -60259356501896476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudBack_8
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 718
+        width: 162
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2e25a5efb0e67f90800000000000000
+      internalID: -6956125459630969301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudBack_9
+      rect:
+        serializedVersion: 2
+        x: 2275
+        y: 718
+        width: 162
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee2395f9fb15341f0800000000000000
+      internalID: -1061915203675278610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudBack_10
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 628
+        width: 162
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b5cbff1a3c47a040800000000000000
+      internalID: 4658776152066475447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudBack_11
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 628
+        width: 162
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d08cbd00e14c21f0800000000000000
+      internalID: -1068406581034712873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudBack_12
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 508
+        width: 282
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 209ccb4b6d74157d0800000000000000
+      internalID: -2931482894960637694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudBack_13
+      rect:
+        serializedVersion: 2
+        x: 1885
+        y: 568
+        width: 232
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 836639511cbf9e260800000000000000
+      internalID: 7127504691999761976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudBack_14
+      rect:
+        serializedVersion: 2
+        x: 2455
+        y: 598
+        width: 282
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a7b500a050887890800000000000000
+      internalID: -7460071698968758368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cloudBack_15
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 478
+        width: 232
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4488b36f99d0bc610800000000000000
+      internalID: 1642421444018931780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      cloudBack_0: 3945082987115592814
+      cloudBack_1: -462595427014696295
+      cloudBack_10: 4658776152066475447
+      cloudBack_11: -1068406581034712873
+      cloudBack_12: -2931482894960637694
+      cloudBack_13: 7127504691999761976
+      cloudBack_14: -7460071698968758368
+      cloudBack_15: 1642421444018931780
+      cloudBack_2: 408207634039219226
+      cloudBack_3: -831012184811106447
+      cloudBack_4: -1625199764614963308
+      cloudBack_5: -8999507540764923154
+      cloudBack_6: 3816140108416669542
+      cloudBack_7: -60259356501896476
+      cloudBack_8: -6956125459630969301
+      cloudBack_9: -1061915203675278610
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 735b02553747b8e46935f542993da723
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4947813550133879108
+    second: stormCloudBack_0
+  - first:
+      213: 1504912441908287351
+    second: stormCloudBack_1
+  - first:
+      213: -6587756490372857158
+    second: stormCloudBack_2
+  - first:
+      213: -408511327553924682
+    second: stormCloudBack_3
+  - first:
+      213: 3617112974090053665
+    second: stormCloudBack_4
+  - first:
+      213: -1012779807831187609
+    second: stormCloudBack_5
+  - first:
+      213: -2787785484848226498
+    second: stormCloudBack_6
+  - first:
+      213: 328434467977346995
+    second: stormCloudBack_7
+  - first:
+      213: -626294713488730338
+    second: stormCloudBack_8
+  - first:
+      213: 998972202335433743
+    second: stormCloudBack_9
+  - first:
+      213: -8534912336044720916
+    second: stormCloudBack_10
+  - first:
+      213: 2238472242208303470
+    second: stormCloudBack_11
+  - first:
+      213: -4540449683354892293
+    second: stormCloudBack_12
+  - first:
+      213: 8526460482201141458
+    second: stormCloudBack_13
+  - first:
+      213: 6837602938937986686
+    second: stormCloudBack_14
+  - first:
+      213: -260673384942100219
+    second: stormCloudBack_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: stormCloudBack_0
+      rect:
+        serializedVersion: 2
+        x: 1459
+        y: 835
+        width: 153
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbed7617ac5d55bb0800000000000000
+      internalID: -4947813550133879108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stormCloudBack_1
+      rect:
+        serializedVersion: 2
+        x: 1939
+        y: 875
+        width: 113
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 777520e74e582e410800000000000000
+      internalID: 1504912441908287351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stormCloudBack_2
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 745
+        width: 153
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab24d8c10669394a0800000000000000
+      internalID: -6587756490372857158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stormCloudBack_3
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 785
+        width: 113
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b1dc6aac1da45af0800000000000000
+      internalID: -408511327553924682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stormCloudBack_4
+      rect:
+        serializedVersion: 2
+        x: 2329
+        y: 785
+        width: 113
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 128281de511923230800000000000000
+      internalID: 3617112974090053665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stormCloudBack_5
+      rect:
+        serializedVersion: 2
+        x: 2559
+        y: 755
+        width: 153
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76f98867122e1f1f0800000000000000
+      internalID: -1012779807831187609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stormCloudBack_6
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 695
+        width: 113
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3f91a13fdbcf49d0800000000000000
+      internalID: -2787785484848226498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stormCloudBack_7
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 665
+        width: 153
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bfb8c39865de8400800000000000000
+      internalID: 328434467977346995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stormCloudBack_8
+      rect:
+        serializedVersion: 2
+        x: 1579
+        y: 635
+        width: 163
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e179ccdb644fe47f0800000000000000
+      internalID: -626294713488730338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stormCloudBack_9
+      rect:
+        serializedVersion: 2
+        x: 2179
+        y: 635
+        width: 163
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0471bcdcef0ddd00800000000000000
+      internalID: 998972202335433743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stormCloudBack_10
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 545
+        width: 163
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cec74f44376ed8980800000000000000
+      internalID: -8534912336044720916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stormCloudBack_11
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 545
+        width: 163
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e69e564f4a6a01f10800000000000000
+      internalID: 2238472242208303470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stormCloudBack_12
+      rect:
+        serializedVersion: 2
+        x: 1019
+        y: 425
+        width: 283
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf7c81fb1151df0c0800000000000000
+      internalID: -4540449683354892293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stormCloudBack_13
+      rect:
+        serializedVersion: 2
+        x: 1789
+        y: 485
+        width: 233
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d0410922a2145670800000000000000
+      internalID: 8526460482201141458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stormCloudBack_14
+      rect:
+        serializedVersion: 2
+        x: 2359
+        y: 515
+        width: 283
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7ec09255ab04ee50800000000000000
+      internalID: 6837602938937986686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stormCloudBack_15
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 395
+        width: 233
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 501a02000f6e16cf0800000000000000
+      internalID: -260673384942100219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      stormCloudBack_0: -4947813550133879108
+      stormCloudBack_1: 1504912441908287351
+      stormCloudBack_10: -8534912336044720916
+      stormCloudBack_11: 2238472242208303470
+      stormCloudBack_12: -4540449683354892293
+      stormCloudBack_13: 8526460482201141458
+      stormCloudBack_14: 6837602938937986686
+      stormCloudBack_15: -260673384942100219
+      stormCloudBack_2: -6587756490372857158
+      stormCloudBack_3: -408511327553924682
+      stormCloudBack_4: 3617112974090053665
+      stormCloudBack_5: -1012779807831187609
+      stormCloudBack_6: -2787785484848226498
+      stormCloudBack_7: 328434467977346995
+      stormCloudBack_8: -626294713488730338
+      stormCloudBack_9: 998972202335433743
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
