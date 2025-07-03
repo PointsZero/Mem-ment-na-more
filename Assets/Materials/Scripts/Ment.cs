@@ -8,7 +8,7 @@ public class Ment: Entity
     [SerializeField] private float jumpForce = 12f;
     [SerializeField] private int health;
     private Rigidbody2D rb;
-    private SpriteRenderer sprite;
+    private SpriteRenderer sprite, spriteB;
     private bool isGrounded = false, isAttacking = false, isRecharged = true;
     private Camera mainCamera;
     private Vector2 screenBounds;
@@ -19,6 +19,8 @@ public class Ment: Entity
     public LayerMask enemy;
     [SerializeField] private Image[] hearts;
     [SerializeField] private Sprite alive, dead;
+    public Transform shotPos;
+    public GameObject bullet;
 
     public static Ment Instance {  get;  set; }
 
@@ -45,6 +47,7 @@ public class Ment: Entity
         if (Input.GetButton("Horizontal")) Run();
         if (isGrounded && Input.GetButtonDown("Jump")) Jump();
         if (Input.GetButtonDown("Fire1")) Attack();
+        if (Input.GetMouseButtonDown(1)) Shoot();
         if (health > lives) health = lives;
         for (int i = 0; i < hearts.Length; i++)
         {
@@ -64,7 +67,7 @@ public class Ment: Entity
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
+        Debug.Log(collision.name + " ment");
         Destroy(collision.gameObject);
     }
     private void Run()
@@ -74,6 +77,12 @@ public class Ment: Entity
         Vector3 dir = transform.right * Input.GetAxis("Horizontal");
         transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed*Time.deltaTime);
         sprite.flipX = dir.x < 0;
+        UpdateShotPosition();
+    }
+    private void UpdateShotPosition()
+    {
+        float offsetX = sprite.flipX ? -Mathf.Abs(shotPos.localPosition.x) : Mathf.Abs(shotPos.localPosition.x);
+        shotPos.localPosition = new Vector3(offsetX, shotPos.localPosition.y, shotPos.localPosition.z);
     }
     private void Jump()
     {
@@ -83,7 +92,6 @@ public class Ment: Entity
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
         isGrounded = colliders.Length > 1;
-
         if (!isGrounded) State = States.jump;
     }
     public override void GetDamage()
@@ -108,6 +116,13 @@ public class Ment: Entity
 
             Debug.Log("Attack");
         }
+    }
+    private void Shoot()
+    {
+        GameObject newBullet = Instantiate(bullet, shotPos.transform.position, transform.rotation);
+        float direction = sprite.flipX ? -1f : 1f;
+        newBullet.GetComponent<Bullet>().SetDirection(direction);
+
     }
     public enum States
     {
