@@ -19,9 +19,9 @@ public class CameraController : MonoBehaviour
         if (!player) player = GameObject.FindGameObjectWithTag("Player").transform;
         lastX = Mathf.RoundToInt(player.position.x);
         if (playerIsLeft)
-            transform.position = new Vector3(player.position.x - offset.x, 0, transform.position.z);
+            transform.position = new Vector3(player.position.x - offset.x, player.position.y + offset.y, transform.position.z);
         else
-            transform.position = new Vector3(player.position.x + offset.x, 0, transform.position.z);
+            transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z);
     }
 
     private void Update()
@@ -34,28 +34,12 @@ public class CameraController : MonoBehaviour
             lastX = Mathf.RoundToInt(player.position.x);
             Vector3 target;
             if (isLeft)
-                target = new Vector3(player.position.x - offset.x, 0, transform.position.z);
+                target = new Vector3(player.position.x - offset.x, player.position.y + offset.y, transform.position.z);
             else
-                target = new Vector3(player.position.x + offset.x, 0, transform.position.z);
+                target = new Vector3(player.position.x + offset.x, player.position.y + offset.y, transform.position.z);
             transform.position = Vector3.Lerp(transform.position, target, dumping * Time.deltaTime);
         }
     }
-
-    //[SerializeField] private Transform player;
-    //private Vector3 pos;
-
-    //private void Awake()
-    //{
-    //    if (!player)
-    //        player = FindObjectOfType<Ment>().transform;
-    //}
-
-    //private void Update()
-    //{
-    //    pos = player.position;
-    //    pos.z = -10f;
-    //    transform.position = Vector3.Lerp(transform.position, pos, Time.deltaTime);
-    //}
 
 
 }

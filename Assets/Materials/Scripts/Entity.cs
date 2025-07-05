@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.U2D;
 
 public class Entity : MonoBehaviour
 {
@@ -14,6 +13,5 @@ public class Entity : MonoBehaviour
         Debug.Log("Entity died");
         Destroy(this.gameObject);
     }
-
 
 }

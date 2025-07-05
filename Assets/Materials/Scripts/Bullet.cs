@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     private float maxDistance = 10f;
     private Vector2 startPosition;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,6 +18,8 @@ public class Bullet : MonoBehaviour
         if (direction < 0)
         {
             SpriteRenderer sprite = GetComponentInChildren<SpriteRenderer>();
+            GetComponent<SpriteRenderer>().sortingLayerName = "Bullet";
+            GetComponent<SpriteRenderer>().sortingOrder = 1;
             if (sprite != null)
             {
                 sprite.flipX = true;
@@ -40,22 +43,26 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.CompareTag("Enemy"))
         {
             Enemy enemy = collision.GetComponent<Enemy>();
             if (enemy != null)
             {
                 enemy.GetDamage();
-                Debug.Log("shot hit in enemy");
+                //Debug.Log("shot hit in enemy");
                 Destroy(gameObject);
             }
         }
         else if (collision.CompareTag("Player"))
         {
-            Debug.Log("shot hit in ment");
+            //Debug.Log("shot hit in ment");
             Destroy(gameObject);
             Ment.Instance.GetDamage();
+        }
+        else if (collision.CompareTag("Block_up"))
+        {
+            //Debug.Log("shot hit in block");
+            Destroy(gameObject);
         }
     }
 

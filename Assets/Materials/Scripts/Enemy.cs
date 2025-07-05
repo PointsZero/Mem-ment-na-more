@@ -1,12 +1,13 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class Enemy : Entity
 {
     [SerializeField] private float speed = 3f;
     [SerializeField] private Transform pointA;
     [SerializeField] private Transform pointB;
-    [SerializeField] private SpriteRenderer sprite; 
+    [SerializeField] private SpriteRenderer sprite;
 
     private Vector3 targetPosition;
     private bool movingToB = true;
@@ -25,6 +26,8 @@ public class Enemy : Entity
         lives = 5;
         sprite = GetComponentInChildren<SpriteRenderer>();
         targetPosition = pointB.position;
+
+        //Debug.Log($"{lives} lives Enemy");
     }
 
     private void Update()
@@ -65,7 +68,7 @@ public class Enemy : Entity
     }
     private void Move()
     {
-        transform.position = Vector3.MoveTowards(transform.position,targetPosition,speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         Vector3 moveDirection = (targetPosition - transform.position).normalized;
         if (moveDirection != Vector3.zero)
         {
@@ -96,7 +99,5 @@ public class Enemy : Entity
     {
         yield return new WaitForSeconds(0.8f);
         canShoot = true;
-
     }
-
 }

@@ -8,17 +8,21 @@ public class Ment: Entity
     [SerializeField] private float jumpForce = 12f;
     [SerializeField] private int health;
     private Rigidbody2D rb;
-    private SpriteRenderer sprite, spriteB;
-    private bool isGrounded = false, isAttacking = false, isRecharged = true;
+    private SpriteRenderer sprite;
+    private bool isGrounded = false, isAttacking = false, isRecharged = true, isDead = false, isSwimming = false;
+
     private Camera mainCamera;
     private Vector2 screenBounds;
     private float objectWidth;
     private Animator anim;
+
     public Transform attackPos;
     public float attackRange;
     public LayerMask enemy;
+
     [SerializeField] private Image[] hearts;
     [SerializeField] private Sprite alive, dead;
+
     public Transform shotPos;
     public GameObject bullet;
 
@@ -33,6 +37,11 @@ public class Ment: Entity
         isRecharged = true;
         lives = 6;
         health = lives;
+        if (isSwimming)
+        {
+            rb.gravityScale = 0;
+            rb.linearDamping = 5;
+        }
 
     }
     private void Start()
@@ -43,11 +52,14 @@ public class Ment: Entity
     }
     private void Update()
     {
-        if (isGrounded) State = States.idle;
-        if (Input.GetButton("Horizontal")) Run();
-        if (isGrounded && Input.GetButtonDown("Jump")) Jump();
-        if (Input.GetButtonDown("Fire1")) Attack();
-        if (Input.GetMouseButtonDown(1)) Shoot();
+        if (isDead) return;
+        if (isGrounded && !isAttacking) State = States.idle;
+        if (!isAttacking && isRecharged && Input.GetMouseButtonDown(0) && !isSwimming) Attack();
+        if (Input.GetMouseButtonDown(1) && !isSwimming) Shoot();
+        if (isGrounded && (Input.GetButtonDown("Jump")) && !isSwimming) Jump();
+        if (Input.GetButton("Horizontal") && !isSwimming) Run();
+        else if ((Input.GetButton("Horizontal")) && isSwimming) SwimX();
+        else if ((Input.GetButton("Vertical")) && isSwimming) SwimY();
         if (health > lives) health = lives;
         for (int i = 0; i < hearts.Length; i++)
         {
@@ -55,29 +67,41 @@ public class Ment: Entity
             else hearts[i].sprite = dead;
             if (i<lives) hearts[i].enabled = true;
             else hearts[i].enabled = false;
-
         } 
     }
     private void FixedUpdate()
     {
         IsGrounded();
-        //Vector3 viewPos = transform.position;
-        //viewPos.x = Mathf.Clamp(viewPos.x, -screenBounds.x + objectWidth, screenBounds.x - objectWidth);
-        //transform.position = viewPos;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log(collision.name + " ment");
-        Destroy(collision.gameObject);
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    Debug.Log(collision.name);
+    //    Destroy(collision.gameObject);
+    //}
+
     private void Run()
     {
-        if (isGrounded) State = States.run;
+        if (isGrounded && !isAttacking) State = States.run;
 
         Vector3 dir = transform.right * Input.GetAxis("Horizontal");
         transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed*Time.deltaTime);
         sprite.flipX = dir.x < 0;
         UpdateShotPosition();
+    }
+    private void SwimX()
+    {
+        //if (isGrounded && !isAttacking) State = States.run;
+        Vector3 dirx = transform.right * Input.GetAxis("Horizontal");
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + dirx, speed*Time.deltaTime);
+        sprite.flipX = dirx.x < 0;
+    }
+    private void SwimY()
+    {
+        ////if (isGrounded && !isAttacking) State = States.run;
+        Vector3 dirx = transform.right * Input.GetAxis("Horizontal");
+        Vector3 diry = transform.up * Input.GetAxis("Vertical");
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + diry, speed * Time.deltaTime);
+        sprite.flipX = dirx.x < 0;
     }
     private void UpdateShotPosition()
     {
@@ -92,28 +116,29 @@ public class Ment: Entity
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
         isGrounded = colliders.Length > 1;
-        if (!isGrounded) State = States.jump;
+        if (!isGrounded && !isAttacking & !isSwimming) State = States.jump;
     }
     public override void GetDamage()
     {
+        if (isDead) return;
         health--;
         if (health == 0)
         {
             foreach (var h in hearts) h.sprite = dead;
             Die();
         }
-        Debug.Log($"{lives} lives left(Ment)");
+        Debug.Log($"{health} lives left(Ment)");
     }
     private void Attack()
     {
-        if (isGrounded && isRecharged) 
+        if (!isRecharged || isAttacking) return;
+        if (isRecharged) 
         {
             State = States.attack;
             isAttacking = true;
             isRecharged = false;
             StartCoroutine(AttackAnimation());
             StartCoroutine(AttackCoolDown());
-
             Debug.Log("Attack");
         }
     }
@@ -122,14 +147,14 @@ public class Ment: Entity
         GameObject newBullet = Instantiate(bullet, shotPos.transform.position, transform.rotation);
         float direction = sprite.flipX ? -1f : 1f;
         newBullet.GetComponent<Bullet>().SetDirection(direction);
-
     }
     public enum States
     {
         idle,
         run,
         jump,
-        attack
+        attack,
+        none
     }
     private States State
     {
@@ -138,12 +163,33 @@ public class Ment: Entity
     }
     private IEnumerator AttackAnimation()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.8f);
         isAttacking = false;
     }
     private IEnumerator AttackCoolDown()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         isRecharged = true;
+    }
+
+    private void OnAttack()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(attackPos.position, attackRange, enemy);
+
+        for (int i = 0; i < colliders.Length; i++)
+            colliders[i].GetComponent<Entity>().GetDamage();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
+    }
+
+    public override void Die()
+    {
+        State = States.none;
+        anim.SetTrigger("death");
+        isDead = true;
     }
 }
