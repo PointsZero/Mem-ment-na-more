@@ -21,6 +21,6 @@ public class Parallax : MonoBehaviour
         if (disableVerticalPar)
             delta.y = 0;
         targetPrevPos = followingTarget.position;
-        transform.position += new Vector3(delta.x * strengthX, delta.y * strengthY, 0);
+        transform.position += new Vector3(delta.x * strengthX, delta.y * strengthY, delta.z);
     }
 }

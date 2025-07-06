@@ -1,16 +1,18 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class Ment: Entity
+public class Ment : Entity
 {
     [SerializeField] private float speed = 3f;
     [SerializeField] private float jumpForce = 12f;
     [SerializeField] private int health;
+    private float dropBackForce = 10f;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
-    private bool isGrounded = false, isAttacking = false, isRecharged = true, isDead = false, isSwimming = false;
-
+    private bool isGrounded = false, isAttacking = false, isRecharged = true, canShoot = true, isDead = false, isSwimming = false, isDamaged = false;
+    private int countCoins = 0;
     private Camera mainCamera;
     private Vector2 screenBounds;
     private float objectWidth;
@@ -26,13 +28,15 @@ public class Ment: Entity
     public Transform shotPos;
     public GameObject bullet;
 
-    public static Ment Instance {  get;  set; }
+    //[SerializeField] private TMP_Text displayText;
+
+    public static Ment Instance { get; set; }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
-        anim= GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         Instance = this;
         isRecharged = true;
         lives = 6;
@@ -42,7 +46,6 @@ public class Ment: Entity
             rb.gravityScale = 0;
             rb.linearDamping = 5;
         }
-
     }
     private void Start()
     {
@@ -53,38 +56,53 @@ public class Ment: Entity
     private void Update()
     {
         if (isDead) return;
-        if (isGrounded && !isAttacking) State = States.idle;
+        if (isGrounded && !isAttacking && !isDamaged) State = States.idle;
         if (!isAttacking && isRecharged && Input.GetMouseButtonDown(0) && !isSwimming) Attack();
-        if (Input.GetMouseButtonDown(1) && !isSwimming) Shoot();
-        if (isGrounded && (Input.GetButtonDown("Jump")) && !isSwimming) Jump();
-        if (Input.GetButton("Horizontal") && !isSwimming) Run();
+        if (Input.GetMouseButtonDown(1) && !isSwimming && canShoot)
+        {
+            Shoot();
+            StartCoroutine(ShootTime());
+        }
+        if (isGrounded && (Input.GetButtonDown("Jump")) && !isSwimming && !isDamaged) Jump();
+        if (Input.GetButton("Horizontal") && !isSwimming && !isDamaged) Run();
         else if ((Input.GetButton("Horizontal")) && isSwimming) SwimX();
         else if ((Input.GetButton("Vertical")) && isSwimming) SwimY();
         if (health > lives) health = lives;
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (i<health) hearts[i].sprite = alive;
+            if (i < health) hearts[i].sprite = alive;
             else hearts[i].sprite = dead;
-            if (i<lives) hearts[i].enabled = true;
+            if (i < lives) hearts[i].enabled = true;
             else hearts[i].enabled = false;
-        } 
+        }
+        //displayText.text = $"Coins: {countCoins}";
     }
     private void FixedUpdate()
     {
         IsGrounded();
     }
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    Debug.Log(collision.name);
-    //    Destroy(collision.gameObject);
-    //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            countCoins++;
+            Debug.Log($"countCoins = {countCoins}");
+        }
+        else if (collision.gameObject.CompareTag("Heal"))
+        {
+            if (health < 6) health++;
+            Debug.Log($"lives ment = {health}");
+        }
+        Debug.Log(collision.name);
+        Destroy(collision.gameObject);
+    }
 
     private void Run()
     {
         if (isGrounded && !isAttacking) State = States.run;
 
         Vector3 dir = transform.right * Input.GetAxis("Horizontal");
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed*Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + dir, speed * Time.deltaTime);
         sprite.flipX = dir.x < 0;
         UpdateShotPosition();
     }
@@ -92,7 +110,7 @@ public class Ment: Entity
     {
         //if (isGrounded && !isAttacking) State = States.run;
         Vector3 dirx = transform.right * Input.GetAxis("Horizontal");
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + dirx, speed*Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + dirx, speed * Time.deltaTime);
         sprite.flipX = dirx.x < 0;
     }
     private void SwimY()
@@ -121,18 +139,26 @@ public class Ment: Entity
     public override void GetDamage()
     {
         if (isDead) return;
+
         health--;
         if (health == 0)
         {
             foreach (var h in hearts) h.sprite = dead;
             Die();
         }
+        else
+        {
+            State = States.damage;
+            isDamaged = true;
+            StartCoroutine(DamageCoolDown());
+        }
         Debug.Log($"{health} lives left(Ment)");
     }
+
     private void Attack()
     {
         if (!isRecharged || isAttacking) return;
-        if (isRecharged) 
+        if (isRecharged)
         {
             State = States.attack;
             isAttacking = true;
@@ -142,11 +168,29 @@ public class Ment: Entity
             Debug.Log("Attack");
         }
     }
+
     private void Shoot()
     {
+        Debug.Log("Shoot");
         GameObject newBullet = Instantiate(bullet, shotPos.transform.position, transform.rotation);
         float direction = sprite.flipX ? -1f : 1f;
         newBullet.GetComponent<Bullet>().SetDirection(direction);
+        canShoot = false;
+    }
+
+    public void DropBack(Vector2 direction)
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.AddForce(direction.normalized * dropBackForce, ForceMode2D.Impulse);
+        }
+    }
+    public override void Die()
+    {
+        State = States.none;
+        anim.SetTrigger("death");
+        isDead = true;
     }
     public enum States
     {
@@ -154,8 +198,10 @@ public class Ment: Entity
         run,
         jump,
         attack,
+        damage,
         none
     }
+
     private States State
     {
         get { return (States)anim.GetInteger("state"); }
@@ -170,6 +216,18 @@ public class Ment: Entity
     {
         yield return new WaitForSeconds(0.3f);
         isRecharged = true;
+        Debug.Log("Recharged");
+    }
+
+    private IEnumerator DamageCoolDown()
+    {
+        yield return new WaitForSeconds(0.8f);
+        isDamaged = false;
+    }
+    private IEnumerator ShootTime()
+    {
+        yield return new WaitForSeconds(0.5f);
+        canShoot = true;
     }
 
     private void OnAttack()
@@ -186,10 +244,6 @@ public class Ment: Entity
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
 
-    public override void Die()
-    {
-        State = States.none;
-        anim.SetTrigger("death");
-        isDead = true;
-    }
+
+
 }

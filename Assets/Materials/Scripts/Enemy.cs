@@ -7,54 +7,74 @@ public class Enemy : Entity
     [SerializeField] private float speed = 3f;
     [SerializeField] private Transform pointA;
     [SerializeField] private Transform pointB;
-    [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] public SpriteRenderer sprite;
+    private float dropBackForce = 3f;
+
+    private Animator anim;
+    private Collider2D col;
 
     private Vector3 targetPosition;
-    private bool movingToB = true;
+    private bool movingToB = true, isDamaged = false, isCry = false, isShooting = false;
     private float arrivalThreshold = 0.1f;
 
-    public float detectionDistance = 10f;
-    public bool isTargetDetected;
+    private float detectionDistanceX = 5f;
+    private float detectionDistanceY = 1f;
+    private bool isTargetDetected;
 
     public Transform shotPos;
     public GameObject bullet;
 
     private bool canShoot = true;
     public static Enemy Instance { get; set; }
+
+    private States State
+    {
+        get { return (States)anim.GetInteger("state"); }
+        set { anim.SetInteger("state", (int)value); }
+    }
+
     private void Start()
     {
         lives = 5;
         sprite = GetComponentInChildren<SpriteRenderer>();
         targetPosition = pointB.position;
+        anim = GetComponent<Animator>();
+        col = GetComponent<Collider2D>();
 
-        //Debug.Log($"{lives} lives Enemy");
     }
 
     private void Update()
     {
-        Move();
-        DetectMent();
+        if (!isDamaged && !isCry)
+        {
+            if(!isShooting) State = States.run;
+            Move();
+            DetectMent();
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject == Ment.Instance.gameObject)
+
+        if (lives > 0 && collision.gameObject == Ment.Instance.gameObject)
         {
+            Vector3 hitDirection = Ment.Instance.transform.position - transform.position;
+            Ment.Instance.DropBack(hitDirection);
             Ment.Instance.GetDamage();
-            Debug.Log($"{lives} lives left(Enemy)");
             lives--;
-            if (lives <= 0) Die();
         }
+        else if (lives == 0) Die();
     }
     private void DetectMent()
     {
         if (Ment.Instance == null) return;
-
-        float distance = Vector3.Distance(transform.position, Ment.Instance.transform.position);
-        isTargetDetected = distance <= detectionDistance;
+        float directionX = Ment.Instance.transform.position.x - transform.position.x;
+        float directionY = Ment.Instance.transform.position.y - transform.position.y;
+        isTargetDetected = (Mathf.Abs(directionX) <= detectionDistanceX) && (Mathf.Abs(directionY) <= detectionDistanceY);
 
         if (isTargetDetected && canShoot)
         {
-            //Debug.Log("DetectMent");
+            State = States.attack;
+            isShooting = true;
             Shoot();
             StartCoroutine(ShootTime());
         }
@@ -88,16 +108,54 @@ public class Enemy : Entity
     }
     public override void GetDamage()
     {
+        if (isCry) return;
         lives--;
         if (lives == 0)
         {
             Die();
         }
+        else
+        {
+            State = States.damage;
+            isDamaged = true;
+            StartCoroutine(DamageCoolDown());
+        }
         Debug.Log($"{lives} lives left(Enemy)");
+    }
+    public void DropBack(Vector2 direction)
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            Debug.Log(dropBackForce);
+            rb.AddForce(direction.normalized * dropBackForce, ForceMode2D.Impulse);
+        }
+    }
+    private IEnumerator DamageCoolDown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        isDamaged = false;
     }
     private IEnumerator ShootTime()
     {
         yield return new WaitForSeconds(0.8f);
         canShoot = true;
+        isShooting = false;
+    }
+    public enum States
+    {
+        idle,
+        run,
+        attack,
+        damage,
+        none
+    }
+    public override void Die()
+    {
+        State = States.none;
+        col.isTrigger = true;
+        anim.SetTrigger("cry");
+        isCry = true;
+        Debug.Log($"Boy cryes");
     }
 }

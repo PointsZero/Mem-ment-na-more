@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 10f;
+    [SerializeField]  public float speed = 10f;
     private Rigidbody2D rb;
-    private float direction = 1f; 
+    private float direction = 1f;
     private float maxDistance = 10f;
     private Vector2 startPosition;
+
 
 
     void Start()
@@ -46,24 +47,27 @@ public class Bullet : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             Enemy enemy = collision.GetComponent<Enemy>();
+
             if (enemy != null)
             {
+                Vector3 hitDirection = enemy.transform.position - transform.position;
                 enemy.GetDamage();
-                //Debug.Log("shot hit in enemy");
+                enemy.DropBack(hitDirection);
                 Destroy(gameObject);
+
             }
         }
         else if (collision.CompareTag("Player"))
         {
-            //Debug.Log("shot hit in ment");
-            Destroy(gameObject);
+            Vector3 hitDirection = Ment.Instance.transform.position - transform.position;
             Ment.Instance.GetDamage();
+            Ment.Instance.DropBack(hitDirection);
+            Destroy(gameObject);
+
         }
         else if (collision.CompareTag("Block_up"))
         {
-            //Debug.Log("shot hit in block");
             Destroy(gameObject);
         }
     }
-
 }
