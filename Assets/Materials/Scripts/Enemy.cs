@@ -81,6 +81,7 @@ public class Enemy : Entity
     }
     private void Shoot()
     {
+        Debug.Log($"Enemy shoots");
         GameObject newBullet = Instantiate(bullet, shotPos.transform.position, transform.rotation);
         float direction = sprite.flipX ? -1f : 1f;
         newBullet.GetComponent<Bullet>().SetDirection(direction);
@@ -101,6 +102,7 @@ public class Enemy : Entity
         }
         UpdateShotPosition();
     }
+
     private void UpdateShotPosition()
     {
         float offsetX = sprite.flipX ? -Mathf.Abs(shotPos.localPosition.x) : Mathf.Abs(shotPos.localPosition.x);
@@ -144,7 +146,6 @@ public class Enemy : Entity
     }
     public enum States
     {
-        idle,
         run,
         attack,
         damage,
@@ -156,6 +157,6 @@ public class Enemy : Entity
         col.isTrigger = true;
         anim.SetTrigger("cry");
         isCry = true;
-        Debug.Log($"Boy cryes");
+        Debug.Log($"Enemy cryes");
     }
 }
