@@ -11,7 +11,9 @@ public class Ment : Entity
     private float dropBackForce = 10f;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
-    private bool isGrounded = false, isAttacking = false, isRecharged = true, canShoot = true, isDead = false, isSwimming = false, isDamaged = false;
+    private float shootTime = 0.2f, attackTime = 0.2f;
+    private bool isGrounded = false, isAttacking = false, isRecharged = true;
+    private bool canShoot = true, isDead = false, isSwimming = false, isDamaged = false;
     private int countCoins = 0;
     private Camera mainCamera;
     private Vector2 screenBounds;
@@ -37,6 +39,7 @@ public class Ment : Entity
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        anim.SetBool("swim", isSwimming);
         Instance = this;
         isRecharged = true;
         lives = 6;
@@ -56,7 +59,7 @@ public class Ment : Entity
     private void Update()
     {
         if (isDead) return;
-        if (isGrounded && !isAttacking && !isDamaged) State = States.idle;
+        if ((isGrounded || isSwimming) && !isAttacking && !isDamaged) State = States.idle;
         if (!isAttacking && isRecharged && Input.GetMouseButtonDown(0) && !isSwimming) Attack();
         if (Input.GetMouseButtonDown(1) && !isSwimming && canShoot)
         {
@@ -75,7 +78,6 @@ public class Ment : Entity
             if (i < lives) hearts[i].enabled = true;
             else hearts[i].enabled = false;
         }
-        //displayText.text = $"Coins: {countCoins}";
     }
     private void FixedUpdate()
     {
@@ -91,7 +93,6 @@ public class Ment : Entity
         else if (collision.gameObject.CompareTag("Heal"))
         {
             if (health < 6) health++;
-            Debug.Log($"lives ment = {health}");
         }
         Debug.Log(collision.name);
         Destroy(collision.gameObject);
@@ -108,14 +109,14 @@ public class Ment : Entity
     }
     private void SwimX()
     {
-        //if (isGrounded && !isAttacking) State = States.run;
+        State = States.run;
         Vector3 dirx = transform.right * Input.GetAxis("Horizontal");
         transform.position = Vector3.MoveTowards(transform.position, transform.position + dirx, speed * Time.deltaTime);
         sprite.flipX = dirx.x < 0;
     }
     private void SwimY()
     {
-        ////if (isGrounded && !isAttacking) State = States.run;
+        State = States.run;
         Vector3 dirx = transform.right * Input.GetAxis("Horizontal");
         Vector3 diry = transform.up * Input.GetAxis("Vertical");
         transform.position = Vector3.MoveTowards(transform.position, transform.position + diry, speed * Time.deltaTime);
@@ -150,9 +151,11 @@ public class Ment : Entity
         {
             State = States.damage;
             isDamaged = true;
+            Debug.Log($"{State} state");
             StartCoroutine(DamageCoolDown());
         }
         Debug.Log($"{health} lives left(Ment)");
+
     }
 
     private void Attack()
@@ -160,7 +163,8 @@ public class Ment : Entity
         if (!isRecharged || isAttacking) return;
         if (isRecharged)
         {
-            State = States.attack;
+            State = States.none;
+            anim.SetTrigger("shoot");
             isAttacking = true;
             isRecharged = false;
             StartCoroutine(AttackAnimation());
@@ -171,13 +175,16 @@ public class Ment : Entity
 
     private void Shoot()
     {
+        State = States.none;
+        anim.SetTrigger("shoot");
+        isAttacking = true;
+        StartCoroutine(AttackAnimation());
         Debug.Log("Shoot");
         GameObject newBullet = Instantiate(bullet, shotPos.transform.position, transform.rotation);
         float direction = sprite.flipX ? -1f : 1f;
         newBullet.GetComponent<Bullet>().SetDirection(direction);
         canShoot = false;
     }
-
     public void DropBack(Vector2 direction)
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -209,7 +216,7 @@ public class Ment : Entity
     }
     private IEnumerator AttackAnimation()
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.2f);
         isAttacking = false;
     }
     private IEnumerator AttackCoolDown()
