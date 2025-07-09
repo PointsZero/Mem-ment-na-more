@@ -77,6 +77,7 @@ public class Enemy : Entity
             isShooting = true;
             Shoot();
             StartCoroutine(ShootTime());
+            StartCoroutine(RechargeTime());
             Debug.Log("detedct");
         }
     }
@@ -137,12 +138,17 @@ public class Enemy : Entity
         yield return new WaitForSeconds(0.5f);
         isDamaged = false;
     }
+    private IEnumerator RechargeTime()
+    {
+        yield return new WaitForSeconds(2.5f);
+        canShoot = true;
+    }
     private IEnumerator ShootTime()
     {
         yield return new WaitForSeconds(0.8f);
-        canShoot = true;
         isShooting = false;
     }
+
     public enum States
     {
         idle,

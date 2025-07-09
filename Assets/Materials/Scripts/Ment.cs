@@ -7,24 +7,30 @@ public class Ment : Entity
 {
     [SerializeField] private float speed = 3f;
     [SerializeField] private float jumpForce = 12f;
-    [SerializeField] private bool isNacked = false;
+    [SerializeField] public bool isNacked = false;
+    [SerializeField] private bool isSwimming = false;
+    [SerializeField] public bool isCatScene = false;
+
     private int health;
     private float dropBackForce = 10f;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     private bool isGrounded = false, isAttacking = false, isRecharged = true, canShoot = true, isDead = false, isDamaged = false;
-    [SerializeField] private bool isSwimming = false;
+    
     private int countCoins = 0;
+    private int countClothes = 0;
     private Camera mainCamera;
     private Vector2 screenBounds;
     private float objectWidth;
     private Animator anim;
-    [SerializeField] private TMP_Text coinsText;
+    private Collider2D col;
+
     public GameObject DeathScreen;
     public Transform attackPos;
     public float attackRange;
     public LayerMask enemy;
 
+    [SerializeField] private TMP_Text coinsText;
     [SerializeField] private Image[] hearts;
     [SerializeField] private Sprite alive, dead;
 
@@ -41,7 +47,6 @@ public class Ment : Entity
         run,
         jump,
         attack,
-        damage,
         none
     }
 
@@ -55,6 +60,7 @@ public class Ment : Entity
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        col = GetComponent<Collider2D>();
         Instance = this;
         isRecharged = true;
         anim.SetBool("swim", isSwimming);
@@ -64,19 +70,19 @@ public class Ment : Entity
             lives = 6; 
             health = PlayerStats.Health;
             countCoins = PlayerStats.Coins;
-
         }
         else
         {
             lives = 6;
             health = lives;
         }
-
         if (isSwimming)
         {
             rb.gravityScale = 0;
             rb.linearDamping = 5;
         }
+        else if (isCatScene)
+            StartCoroutine(CatTime());
         UpdateCoinsText();
     }
     private void Start()
@@ -88,9 +94,8 @@ public class Ment : Entity
     }
     private void Update()
     {
-        if (isDead) return;
-        if (isGrounded && !isAttacking && !isDamaged) State = States.idle;
-        //if (!isAttacking && isRecharged && Input.GetMouseButtonDown(0) && !isSwimming) Attack();
+        if (isDead || isCatScene) return;
+        if ((isGrounded || isSwimming) && !isAttacking && !isDamaged) State = States.idle;
         if (Input.GetMouseButtonDown(0) && !isSwimming && canShoot && !isNacked)
         {
             Shoot();
@@ -108,6 +113,11 @@ public class Ment : Entity
             if (i < lives) hearts[i].enabled = true;
             else hearts[i].enabled = false;
         }
+        if (countClothes == 3)
+        {
+            isNacked = false;
+        }
+
         //displayText.text = $"Coins: {countCoins}";
     }
     private void FixedUpdate()
@@ -119,7 +129,7 @@ public class Ment : Entity
         if (collision.gameObject.CompareTag("Coin"))
         {
             countCoins++;
-            UpdateCoinsText(); 
+            UpdateCoinsText();
             Debug.Log($"countCoins = {countCoins}");
         }
         else if (collision.gameObject.CompareTag("Heal"))
@@ -127,9 +137,16 @@ public class Ment : Entity
             if (health < 6) health++;
             Debug.Log($"lives ment = {health}");
         }
+        else if (collision.gameObject.CompareTag("clothes"))
+        {
+            countClothes++;
+            Debug.Log($"countClothes = {countClothes}");
+        }
         Debug.Log(collision.name);
-        Destroy(collision.gameObject);
+        if (!collision.gameObject.CompareTag("Sign"))
+            Destroy(collision.gameObject);
     }
+
     private void UpdateCoinsText()
     {
         if (coinsText != null)
@@ -149,12 +166,14 @@ public class Ment : Entity
     }
     private void SwimX()
     {
+        State = States.run;
         Vector3 dirx = transform.right * Input.GetAxis("Horizontal");
         transform.position = Vector3.MoveTowards(transform.position, transform.position + dirx, speed * Time.deltaTime);
         sprite.flipX = dirx.x < 0;
     }
     private void SwimY()
     {
+        State = States.run;
         Vector3 dirx = transform.right * Input.GetAxis("Horizontal");
         Vector3 diry = transform.up * Input.GetAxis("Vertical");
         transform.position = Vector3.MoveTowards(transform.position, transform.position + diry, speed * Time.deltaTime);
@@ -190,28 +209,15 @@ public class Ment : Entity
             foreach (var h in hearts) h.sprite = dead;
             Die();
         }
-        else
-        {
-            State = States.damage;
+        else if (health>0)        {
+            State = States.none;
+            anim.SetTrigger("damage");
             isDamaged = true;
             StartCoroutine(DamageCoolDown());
         }
         Debug.Log($"{health} lives left(Ment)");
     }
 
-    //private void Attack()
-    //{
-    //    if (!isRecharged || isAttacking) return;
-    //    if (isRecharged)
-    //    {
-    //        State = States.attack;
-    //        isAttacking = true;
-    //        isRecharged = false;
-    //        StartCoroutine(AttackAnimation());
-    //        StartCoroutine(AttackCoolDown());
-    //        Debug.Log("Attack");
-    //    }
-    //}
 
     private void Shoot()
     {
@@ -237,6 +243,7 @@ public class Ment : Entity
     public override void Die()
     {
         State = States.none;
+        //col.isTrigger = true;
         anim.SetTrigger("death");
         isDead = true;
     }
@@ -255,7 +262,7 @@ public class Ment : Entity
 
     private IEnumerator DamageCoolDown()
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.5f);
         isDamaged = false;
     }
     private IEnumerator ShootTime()
@@ -264,19 +271,13 @@ public class Ment : Entity
         canShoot = true;
     }
 
-    //private void OnAttack()
-    //{
-    //    Collider2D[] colliders = Physics2D.OverlapCircleAll(attackPos.position, attackRange, enemy);
+    private IEnumerator CatTime()
+    {
+        yield return new WaitForSeconds(18f); 
+        isCatScene = false;
+        Debug.Log("CatTimeEnd");
+    }
 
-    //    for (int i = 0; i < colliders.Length; i++)
-    //        colliders[i].GetComponent<Entity>().GetDamage();
-    //}
-
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(attackPos.position, attackRange);
-    //}
 
 
 

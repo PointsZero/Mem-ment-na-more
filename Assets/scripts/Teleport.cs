@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class Teleport : MonoBehaviour
 {
-    [SerializeField] private bool savePosition = false;
     [SerializeField] private bool isEndLevelTeleport = true;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -15,7 +14,7 @@ public class Teleport : MonoBehaviour
             // Всегда сохраняем статистику при переходе между уровнями
             PlayerStats.SaveStats(player);
 
-            if (isEndLevelTeleport)
+            if (isEndLevelTeleport && !Ment.Instance.isNacked)
             {
                 LoadNextLevel();
             }

@@ -9,6 +9,8 @@ TagManager:
   - Block_up
   - Heal
   - Coin
+  - Sign
+  - clothes
   layers:
   - Default
   - TransparentFX
