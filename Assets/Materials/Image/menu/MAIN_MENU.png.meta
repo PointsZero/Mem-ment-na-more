@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 77e08bf39f77eb1489fc71ff233c8379
+guid: bf9b3a588916a984eb3b58f69daef93b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4609764937589784581
-    second: shoes_0
-  - first:
-      213: -653813295066310515
-    second: shoes_1
-  - first:
-      213: 1630994456797430088
-    second: shoes_2
+      213: 6480746518047023025
+    second: MAIN_MENU_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -102,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shoes_0
+      name: MAIN_MENU_0
       rect:
         serializedVersion: 2
-        x: 53
-        y: 65
-        width: 56
-        height: 38
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,52 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bfff8ec7633d600c0800000000000000
-      internalID: -4609764937589784581
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shoes_1
-      rect:
-        serializedVersion: 2
-        x: 113
-        y: 71
-        width: 14
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d88152ea5403de6f0800000000000000
-      internalID: -653813295066310515
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shoes_2
-      rect:
-        serializedVersion: 2
-        x: 131
-        y: 71
-        width: 20
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 841ca0c21d472a610800000000000000
-      internalID: 1630994456797430088
+      spriteID: 1bfda872f9c30f950800000000000000
+      internalID: 6480746518047023025
       vertices: []
       indices: 
       edges: []
@@ -198,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      shoes_0: -4609764937589784581
-      shoes_1: -653813295066310515
-      shoes_2: 1630994456797430088
+      MAIN_MENU_0: 6480746518047023025
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

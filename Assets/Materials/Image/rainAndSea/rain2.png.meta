@@ -1,0 +1,1170 @@
+fileFormatVersion: 2
+guid: f3fafc39290083e4e8b0b31de685d1da
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5367034213656046226
+    second: rain2_0
+  - first:
+      213: 7363963584702774701
+    second: rain2_1
+  - first:
+      213: -639667404574869293
+    second: rain2_2
+  - first:
+      213: -8150580782229753418
+    second: rain2_3
+  - first:
+      213: -3986011969005917206
+    second: rain2_4
+  - first:
+      213: -4776756869597384243
+    second: rain2_5
+  - first:
+      213: 8523640961002737941
+    second: rain2_6
+  - first:
+      213: 7226997165798581494
+    second: rain2_7
+  - first:
+      213: 299467759233175025
+    second: rain2_8
+  - first:
+      213: 3076910645649248376
+    second: rain2_9
+  - first:
+      213: -4046794985583792476
+    second: rain2_10
+  - first:
+      213: 5402834193258947459
+    second: rain2_11
+  - first:
+      213: -3961624435637977835
+    second: rain2_12
+  - first:
+      213: -2025434757863131055
+    second: rain2_13
+  - first:
+      213: 7963336357405915441
+    second: rain2_14
+  - first:
+      213: 3337216420134878510
+    second: rain2_15
+  - first:
+      213: -6494468403526102922
+    second: rain2_16
+  - first:
+      213: 3056082107352651063
+    second: rain2_17
+  - first:
+      213: 7231554829739004932
+    second: rain2_18
+  - first:
+      213: -1210164248460974095
+    second: rain2_19
+  - first:
+      213: 5016978464657286749
+    second: rain2_20
+  - first:
+      213: 7882479602022814072
+    second: rain2_21
+  - first:
+      213: 4627779181629889136
+    second: rain2_22
+  - first:
+      213: -5199805273558148931
+    second: rain2_23
+  - first:
+      213: -5145642529203201370
+    second: rain2_24
+  - first:
+      213: -5735417970145250442
+    second: rain2_25
+  - first:
+      213: 18754000801862999
+    second: rain2_26
+  - first:
+      213: 8947466002845022116
+    second: rain2_27
+  - first:
+      213: 1759801859948994556
+    second: rain2_28
+  - first:
+      213: 4301919922434088372
+    second: rain2_29
+  - first:
+      213: 882604782192492301
+    second: rain2_30
+  - first:
+      213: -6926632397894672652
+    second: rain2_31
+  - first:
+      213: 4495682616294740388
+    second: rain2_32
+  - first:
+      213: -8391376116290675880
+    second: rain2_33
+  - first:
+      213: 5757395335242510821
+    second: rain2_34
+  - first:
+      213: -1105031748021852551
+    second: rain2_35
+  - first:
+      213: 5982753318019153320
+    second: rain2_36
+  - first:
+      213: -7851675940560182198
+    second: rain2_37
+  - first:
+      213: 904126805872534934
+    second: rain2_38
+  - first:
+      213: 6527528065502479707
+    second: rain2_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rain2_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 119
+        height: 583
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29a265a7e298b7a40800000000000000
+      internalID: 5367034213656046226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_1
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 500
+        width: 17
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dadfe154ddd023660800000000000000
+      internalID: 7363963584702774701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 482
+        width: 38
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d83be772e17f17f0800000000000000
+      internalID: -639667404574869293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_3
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 545
+        width: 8
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b1f11256f153ee80800000000000000
+      internalID: -8150580782229753418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_4
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 470
+        width: 56
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeb62f4ab37dea8c0800000000000000
+      internalID: -3986011969005917206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_5
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 197
+        height: 589
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc1bd397fec85bdb0800000000000000
+      internalID: -4776756869597384243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_6
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 545
+        width: 8
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51199893b4e0a4670800000000000000
+      internalID: 8523640961002737941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_7
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 482
+        width: 38
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f4ed2cc1a37b4460800000000000000
+      internalID: 7226997165798581494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_8
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 0
+        width: 119
+        height: 583
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fd86c2275ce72400800000000000000
+      internalID: 299467759233175025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_9
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 500
+        width: 17
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8709a871ee163ba20800000000000000
+      internalID: 3076910645649248376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_10
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 401
+        width: 8
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ae2275c665e6d7c0800000000000000
+      internalID: -4046794985583792476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_11
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 434
+        width: 8
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 383a885c219bafa40800000000000000
+      internalID: 5402834193258947459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_12
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 365
+        width: 29
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51d7a4cb09b7509c0800000000000000
+      internalID: -3961624435637977835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_13
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 461
+        width: 8
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 158b6d5a1d534e3e0800000000000000
+      internalID: -2025434757863131055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_14
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 365
+        width: 29
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 139f12ab934738e60800000000000000
+      internalID: 7963336357405915441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_15
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 434
+        width: 8
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2d7dbc17ac205e20800000000000000
+      internalID: 3337216420134878510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_16
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 401
+        width: 8
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67014da65630fd5a0800000000000000
+      internalID: -6494468403526102922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_17
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 0
+        width: 134
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7359e2d1c72696a20800000000000000
+      internalID: 3056082107352651063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_18
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 359
+        width: 20
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4049a50adc4ab5460800000000000000
+      internalID: 7231554829739004932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_19
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 416
+        width: 8
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f72b9a1702a43fe0800000000000000
+      internalID: -1210164248460974095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_20
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 416
+        width: 8
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d56aeaf1553ef9540800000000000000
+      internalID: 5016978464657286749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_21
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 410
+        width: 11
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87115d35f61346d60800000000000000
+      internalID: 7882479602022814072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_22
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 353
+        width: 8
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07a5ffb85ac293040800000000000000
+      internalID: 4627779181629889136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_23
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 350
+        width: 8
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db81d5847a496d7b0800000000000000
+      internalID: -5199805273558148931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_24
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 341
+        width: 8
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aa53b9e1610798b0800000000000000
+      internalID: -5145642529203201370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_25
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 206
+        width: 20
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 673b9136eb3b760b0800000000000000
+      internalID: -5735417970145250442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_26
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 353
+        width: 8
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75599e31aa0a24000800000000000000
+      internalID: 18754000801862999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_27
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 206
+        width: 11
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a736738ce8cb2c70800000000000000
+      internalID: 8947466002845022116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_28
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 260
+        width: 8
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cffd451c7721c6810800000000000000
+      internalID: 1759801859948994556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_29
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 251
+        width: 8
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bd1cdc706d73bb30800000000000000
+      internalID: 4301919922434088372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_30
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 260
+        width: 8
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0ff4a78f54af3c00800000000000000
+      internalID: 882604782192492301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_31
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 206
+        width: 11
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fe96c17888afdf90800000000000000
+      internalID: -6926632397894672652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_32
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 131
+        width: 8
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a19527358fd36e30800000000000000
+      internalID: 4495682616294740388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_33
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 131
+        width: 8
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85b1cc3b1e7db8b80800000000000000
+      internalID: -8391376116290675880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_34
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 32
+        width: 8
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e1fe9cad8066ef40800000000000000
+      internalID: 5757395335242510821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_35
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 8
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 976e0a9da732aa0f0800000000000000
+      internalID: -1105031748021852551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_36
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 20
+        width: 11
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ad325bd172070350800000000000000
+      internalID: 5982753318019153320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_37
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 20
+        width: 11
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a44ed6ff45e390390800000000000000
+      internalID: -7851675940560182198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_38
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 0
+        width: 8
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 695e0f72a8a1c8c00800000000000000
+      internalID: 904126805872534934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rain2_39
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 32
+        width: 8
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b550ba5f030769a50800000000000000
+      internalID: 6527528065502479707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      rain2_0: 5367034213656046226
+      rain2_1: 7363963584702774701
+      rain2_10: -4046794985583792476
+      rain2_11: 5402834193258947459
+      rain2_12: -3961624435637977835
+      rain2_13: -2025434757863131055
+      rain2_14: 7963336357405915441
+      rain2_15: 3337216420134878510
+      rain2_16: -6494468403526102922
+      rain2_17: 3056082107352651063
+      rain2_18: 7231554829739004932
+      rain2_19: -1210164248460974095
+      rain2_2: -639667404574869293
+      rain2_20: 5016978464657286749
+      rain2_21: 7882479602022814072
+      rain2_22: 4627779181629889136
+      rain2_23: -5199805273558148931
+      rain2_24: -5145642529203201370
+      rain2_25: -5735417970145250442
+      rain2_26: 18754000801862999
+      rain2_27: 8947466002845022116
+      rain2_28: 1759801859948994556
+      rain2_29: 4301919922434088372
+      rain2_3: -8150580782229753418
+      rain2_30: 882604782192492301
+      rain2_31: -6926632397894672652
+      rain2_32: 4495682616294740388
+      rain2_33: -8391376116290675880
+      rain2_34: 5757395335242510821
+      rain2_35: -1105031748021852551
+      rain2_36: 5982753318019153320
+      rain2_37: -7851675940560182198
+      rain2_38: 904126805872534934
+      rain2_39: 6527528065502479707
+      rain2_4: -3986011969005917206
+      rain2_5: -4776756869597384243
+      rain2_6: 8523640961002737941
+      rain2_7: 7226997165798581494
+      rain2_8: 299467759233175025
+      rain2_9: 3076910645649248376
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
