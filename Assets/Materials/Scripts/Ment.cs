@@ -7,19 +7,20 @@ public class Ment : Entity
 {
     [SerializeField] private float speed = 3f;
     [SerializeField] private float jumpForce = 12f;
-    [SerializeField] private int health;
+    [SerializeField]
+    private int health;
     private float dropBackForce = 10f;
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
-    private float shootTime = 0.2f, attackTime = 0.2f;
-    private bool isGrounded = false, isAttacking = false, isRecharged = true;
-    private bool canShoot = true, isDead = false, isSwimming = false, isDamaged = false;
+    private bool isGrounded = false, isAttacking = false, isRecharged = true, canShoot = true, isDead = false, isDamaged = false;
+    [SerializeField] private bool isSwimming = false;
     private int countCoins = 0;
     private Camera mainCamera;
     private Vector2 screenBounds;
     private float objectWidth;
     private Animator anim;
-
+    [SerializeField] private TMP_Text coinsText;
+    public GameObject DeathScreen;
     public Transform attackPos;
     public float attackRange;
     public LayerMask enemy;
@@ -29,37 +30,65 @@ public class Ment : Entity
 
     public Transform shotPos;
     public GameObject bullet;
-
+    public int GetHealth() => health;
+    public int GetCoins() => countCoins;
     //[SerializeField] private TMP_Text displayText;
 
     public static Ment Instance { get; set; }
+    public enum States
+    {
+        idle,
+        run,
+        jump,
+        attack,
+        damage,
+        none
+    }
 
+    private States State
+    {
+        get => (States)anim.GetInteger("state");
+        set => anim.SetInteger("state", (int)value);
+    }
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        anim.SetBool("swim", isSwimming);
         Instance = this;
         isRecharged = true;
-        lives = 6;
-        health = lives;
+
+        if (PlayerStats.IsInitialized)
+        {
+            lives = 6; 
+            health = PlayerStats.Health;
+            countCoins = PlayerStats.Coins;
+
+        }
+        else
+        {
+            lives = 6;
+            health = lives;
+        }
+
         if (isSwimming)
         {
             rb.gravityScale = 0;
             rb.linearDamping = 5;
         }
+        UpdateCoinsText();
     }
     private void Start()
     {
         mainCamera = Camera.main;
         screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
         objectWidth = sprite.bounds.extents.x;
+        UpdateCoinsText();
     }
     private void Update()
     {
         if (isDead) return;
-        if ((isGrounded || isSwimming) && !isAttacking && !isDamaged) State = States.idle;
+        if (isGrounded && !isAttacking && !isDamaged) State = States.idle;
         if (!isAttacking && isRecharged && Input.GetMouseButtonDown(0) && !isSwimming) Attack();
         if (Input.GetMouseButtonDown(1) && !isSwimming && canShoot)
         {
@@ -78,6 +107,7 @@ public class Ment : Entity
             if (i < lives) hearts[i].enabled = true;
             else hearts[i].enabled = false;
         }
+        //displayText.text = $"Coins: {countCoins}";
     }
     private void FixedUpdate()
     {
@@ -88,16 +118,25 @@ public class Ment : Entity
         if (collision.gameObject.CompareTag("Coin"))
         {
             countCoins++;
+            UpdateCoinsText(); 
             Debug.Log($"countCoins = {countCoins}");
         }
         else if (collision.gameObject.CompareTag("Heal"))
         {
             if (health < 6) health++;
+            Debug.Log($"lives ment = {health}");
         }
         Debug.Log(collision.name);
         Destroy(collision.gameObject);
     }
-
+    private void UpdateCoinsText()
+    {
+        if (coinsText != null)
+        {
+            coinsText.text = $"{countCoins}";
+            coinsText.gameObject.SetActive(true);
+        }
+    }
     private void Run()
     {
         if (isGrounded && !isAttacking) State = States.run;
@@ -135,7 +174,7 @@ public class Ment : Entity
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
         isGrounded = colliders.Length > 1;
-        if (!isGrounded && !isAttacking & !isSwimming) State = States.jump;
+        if (!isGrounded && !isAttacking && !isSwimming && !isDead) State = States.jump;
     }
     public override void GetDamage()
     {
@@ -144,6 +183,11 @@ public class Ment : Entity
         health--;
         if (health == 0)
         {
+            if (!DeathScreen.activeSelf)
+            {
+                DeathScreen.SetActive(true);
+            }
+
             foreach (var h in hearts) h.sprite = dead;
             Die();
         }
@@ -151,11 +195,9 @@ public class Ment : Entity
         {
             State = States.damage;
             isDamaged = true;
-            Debug.Log($"{State} state");
             StartCoroutine(DamageCoolDown());
         }
         Debug.Log($"{health} lives left(Ment)");
-
     }
 
     private void Attack()
@@ -163,8 +205,7 @@ public class Ment : Entity
         if (!isRecharged || isAttacking) return;
         if (isRecharged)
         {
-            State = States.none;
-            anim.SetTrigger("shoot");
+            State = States.attack;
             isAttacking = true;
             isRecharged = false;
             StartCoroutine(AttackAnimation());
@@ -175,16 +216,13 @@ public class Ment : Entity
 
     private void Shoot()
     {
-        State = States.none;
-        anim.SetTrigger("shoot");
-        isAttacking = true;
-        StartCoroutine(AttackAnimation());
         Debug.Log("Shoot");
         GameObject newBullet = Instantiate(bullet, shotPos.transform.position, transform.rotation);
         float direction = sprite.flipX ? -1f : 1f;
         newBullet.GetComponent<Bullet>().SetDirection(direction);
         canShoot = false;
     }
+
     public void DropBack(Vector2 direction)
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -199,24 +237,10 @@ public class Ment : Entity
         anim.SetTrigger("death");
         isDead = true;
     }
-    public enum States
-    {
-        idle,
-        run,
-        jump,
-        attack,
-        damage,
-        none
-    }
 
-    private States State
-    {
-        get { return (States)anim.GetInteger("state"); }
-        set { anim.SetInteger("state", (int)value); }
-    }
     private IEnumerator AttackAnimation()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.8f);
         isAttacking = false;
     }
     private IEnumerator AttackCoolDown()
